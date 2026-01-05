@@ -1,0 +1,114 @@
+<DOCTYPE html>
+<html lang="en">
+<head>
+<title>CSS selector experiment</title>
+<style>
+/*simple selector*/
+p{
+color:purple
+padding:18 px;
+font-size:18 px;
+}
+#highlighted{
+font-style:italic;
+}
+focus{
+background-color:lightgreen;
+border-radius:10 px;
+padding:10 px;
+}
+section,article{
+margin:10px;
+}
+*{
+font-family:verdana,sans-serif;
+}
+/*combinator selector*/
+section p{
+color:orange;
+}
+aticle>p{
+border:2 px dashed red;
+h2+p{
+font-weight:bold;
+}
+h2~p{
+background-color:lightblue;
+}
+/*pseudo-class selector*/
+a:hover{
+color:green;
+}
+input:focus{
+outline:3 px solid red;
+}
+li:nth-child(odd){
+background-color:#ffeb99;
+}
+li:nth-child(even){
+background-color:#99d9ff;
+}
+/*pseudo-element slector*/
+p::first-letter{
+font-size:2 em;
+font-weight:bold;
+}
+selection p::before{
+content:"*";
+color:gold;
+}
+/*atrtibute selector*/
+[type="text"]{
+border:3 px solid purple;
+padding:5 px;
+border-radius:8 px;
+}
+[type="submit"]{
+background-color:dark orange;
+padding:8 px;
+color:white;
+border:none;
+border-radius:5 px;
+}
+</style>
+</head>
+<body>
+<h1>CSS selector experiments</h1>
+<!__SIMPLE SELECTOR__>
+<h3>simple selectors(element,ID,class,universal)</h3>
+<div id="highlighted">
+<p>element selector(p) and ID selector</p>
+<p class="focus">class selector</p>
+</div>
+<hr>
+<!__COMBINATOR SELECTORS__>
+<h3>combinator selector</h3>
+<h4>adjacent & general sibiling</h4>
+<h2>heading</h2>
+<p>adjacent sibling selector</p>
+<p>general sibling selector</p>
+<hr>
+<!__PSEUDO-CLASS SELECTORS__>
+<H3>pseudo-class selectors</h3>
+<ul>
+<li>odd item</li>
+<li>even item</li>
+<li>odd item</li>
+<li>even item</li>
+</ul>
+<a href="#" hover pseudo-class</a>
+<hr>
+<!__PSEUDO-ELEMENT SELECTORS__>
+<h3>pseudo-element selectors</h3>
+<p>pseudo-element applied</P>
+<hr>
+<!__ATTRIBUTE SELECTORS__>
+<h3>attribute selectors</h3>
+<form>
+<label for="username">username:</label>
+<input type="text"id="username">
+<br><br>
+<input type="submit"value="submit">
+</form>
+</body>
+</html>
