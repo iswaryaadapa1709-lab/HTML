@@ -1,0 +1,70 @@
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(const MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: Scaffold(
+        appBar: AppBar(
+          title: const Text('Stateless Multi-Card Example'),
+        ),
+        body: CardListScreen(),
+      ),
+    );
+  }
+}
+
+class CardListScreen extends StatelessWidget {
+  CardListScreen({super.key});
+
+  final List<bool> _cardSelections =
+      List.generate(5, (index) => false);
+
+  @override
+  Widget build(BuildContext context) {
+    return ListView.builder(
+      itemCount: 5,
+      itemBuilder: (context, index) {
+        return Card(
+          margin: const EdgeInsets.all(8.0),
+          color: _cardSelections[index]
+              ? Colors.blueAccent.shade100
+              : Colors.white,
+          elevation: _cardSelections[index] ? 8.0 : 2.0,
+          child: Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  'Card ${index + 1}',
+                  style: const TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                const SizedBox(height: 8.0),
+                Text(
+                  _cardSelections[index]
+                      ? 'This card is selected!'
+                      : 'Tap to select this card.',
+                  style: TextStyle(
+                    color: _cardSelections[index]
+                        ? Colors.white
+                        : Colors.black87,
+                  ),
+                ),
+              ],
+            ),
+          ),
+        );
+      },
+    );
+  }
+}
