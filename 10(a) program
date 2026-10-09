@@ -1,0 +1,34 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_test/flutter_test.dart';
+import 'package:flutterlab/exp2cButtonCounter.dart';
+
+void main() {
+  testWidgets('Counter starts at 0',
+      (WidgetTester tester) async {
+    await tester.pumpWidget(
+      const MaterialApp(home: MyHomePage()),
+    );
+
+    final textFinder1 = find.text('Counter Value:');
+    expect(textFinder1, findsOneWidget);
+
+    final textFinder2 = find.text('0');
+    expect(textFinder2, findsOneWidget);
+  });
+
+  testWidgets('Counter increments when button is pressed',
+      (WidgetTester tester) async {
+    await tester.pumpWidget(
+      const MaterialApp(home: MyHomePage()),
+    );
+
+    final buttonFinder = find.text('Increment Counter');
+    expect(buttonFinder, findsOneWidget);
+
+    await tester.tap(buttonFinder);
+    await tester.pump();
+
+    expect(find.text('0'), findsNothing);
+    expect(find.text('1'), findsOneWidget);
+  });
+}
